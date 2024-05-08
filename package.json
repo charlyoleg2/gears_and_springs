@@ -31,7 +31,7 @@
 		"ls_output": "ls -ltra output"
 	},
 	"devDependencies": {
-		"designix-cli": "^0.5.27",
-		"designix-uis": "^0.5.17"
+		"designix-cli": "^0.5.28",
+		"designix-uis": "^0.5.18"
 	}
 }
