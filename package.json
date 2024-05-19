@@ -28,7 +28,7 @@
 		"gearWW_stl": "openscad -o refs/gearWW/gearWW_v01.stl refs/gearWW/gearWW_v01.scad",
 		"make_gear": "node make_gear.js",
 		"git_clean": "git clean -f",
-		"ls_output": "ls -ltra output"
+		"ls_refs": "ls -ltra refs"
 	},
 	"devDependencies": {
 		"designix-cli": "^0.5.28",
