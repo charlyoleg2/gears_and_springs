@@ -31,7 +31,7 @@
 		"ls_refs": "ls -ltra refs"
 	},
 	"devDependencies": {
-		"designix-cli": "^0.5.31",
-		"designix-uis": "^0.5.21"
+		"designix-cli": "^0.5.33",
+		"designix-uis": "^0.5.23"
 	}
 }
