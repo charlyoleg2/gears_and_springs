@@ -1246,7 +1246,13 @@ def fex_subpax_gear_wheel_wheel_axisProfile():
 	return VFP
 subpax_gear_wheel_wheel_axisProfile = fex_subpax_gear_wheel_wheel_axisProfile()
 
-pax_gear_wheel_wheel = subpax_gear_wheel_wheel_teethProfile.common([subpax_gear_wheel_wheel_axisProfile])
+def fvol_pax_gear_wheel_wheel():
+	V000 = subpax_gear_wheel_wheel_teethProfile
+	V001 = V000.common(subpax_gear_wheel_wheel_axisProfile)
+	VFC = V001.removeSplitter()
+	return VFC
+pax_gear_wheel_wheel = fvol_pax_gear_wheel_wheel()
+
 
 pax_gear_wheel_wheel.check()
 #pax_gear_wheel_wheel.exportBrep(f"{outFileName}.brep")

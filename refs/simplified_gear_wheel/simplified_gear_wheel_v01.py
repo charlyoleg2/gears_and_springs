@@ -2461,7 +2461,13 @@ def fex_subpax_gear_wheel_wheel_ref1_axisProfile():
 	return VFP
 subpax_gear_wheel_wheel_ref1_axisProfile = fex_subpax_gear_wheel_wheel_ref1_axisProfile()
 
-pax_gear_wheel_wheel_ref1 = subpax_gear_wheel_wheel_ref1_teethProfile.common([subpax_gear_wheel_wheel_ref1_axisProfile])
+def fvol_pax_gear_wheel_wheel_ref1():
+	V000 = subpax_gear_wheel_wheel_ref1_teethProfile
+	V001 = V000.common(subpax_gear_wheel_wheel_ref1_axisProfile)
+	VFC = V001.removeSplitter()
+	return VFC
+pax_gear_wheel_wheel_ref1 = fvol_pax_gear_wheel_wheel_ref1()
+
 def finh_inpax_simplified_gear_wheel_gearWW():
 	IVR1 = pax_gear_wheel_wheel_ref1.rotate(App.Vector(0, 0, 0), App.Vector(1, 0, 0), 0.0000)
 	IVR2 = IVR1.rotate(App.Vector(0, 0, 0), App.Vector(0, 1, 0), 0.0000)
