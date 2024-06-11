@@ -32,7 +32,6 @@
 	},
 	"devDependencies": {
 		"designix-cli": "^0.5.36",
-		"designix-uis": "^0.5.26",
-		"jscad": "^1.1.0"
+		"designix-uis": "^0.5.26"
 	}
 }
