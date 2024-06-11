@@ -28,6 +28,7 @@
 		"gearWW_stl": "openscad -o refs/gearWW/gearWW_v01.stl refs/gearWW/gearWW_v01.scad",
 		"make_gear": "node make_gear.js",
 		"git_clean": "git clean -f",
+		"install_jscad": "npm install --prefix=refs @jscad/cli",
 		"ls_refs": "ls -ltra refs"
 	},
 	"devDependencies": {
