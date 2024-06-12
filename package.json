@@ -35,6 +35,7 @@
 	},
 	"devDependencies": {
 		"designix-cli": "^0.5.37",
-		"designix-uis": "^0.5.27"
+		"designix-uis": "^0.5.27",
+		"shx": "^0.3.4"
 	}
 }
