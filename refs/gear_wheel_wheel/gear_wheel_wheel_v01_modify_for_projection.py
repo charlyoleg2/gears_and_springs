@@ -1263,14 +1263,16 @@ pax_gear_wheel_wheel.check()
 #pax_gear_wheel_wheel.exportStep(f"{outFileName}.stp")
 pax_gear_wheel_wheel.exportStl(f"{outFileName}.stl")
 
-l_slice = Part.makeCompound(pax_gear_wheel_wheel.slice(App.Vector(0, 0, 1), 0)) # slice the plank in the ai_vector plan at a the height ai_depth
+cross_section_slice = Part.makeCompound(pax_gear_wheel_wheel.slice(App.Vector(0, 0, 1), 0)) # slice the plank in the ai_vector plan at a the height ai_depth
 
-doc = App.newDocument("blabla1")
+doc = App.newDocument()
+#doc = App.newDocument("blabla1")
 #myPart = FreeCAD.ActiveDocument.addObject("Part::Feature", "blabla2")
 myPart = doc.addObject("Part::Feature", "blabla2")
-# select the part your want to project
+### select the part your want to project: top-view or cross-section
 #myPart.Shape = pax_gear_wheel_wheel
-myPart.Shape = l_slice
+myPart.Shape = cross_section_slice
 r_dxf = Draft.make_shape2dview(myPart, App.Vector(0, 0, 1))
 doc.recompute()
 importDXF.export(r_dxf, 'myProjection.dxf')
+
