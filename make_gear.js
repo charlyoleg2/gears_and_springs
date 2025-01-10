@@ -5,7 +5,9 @@ import { exec } from "child_process";
 import { promisify } from 'util';
 
 const c_Parts = {
-	gear_wheel: 'gear_wheel_v01'
+	gear_wheel: 'gear_wheel_v01',
+	gear_wheel_N17: 'gear_wheel_N17_v01',
+	gear_wheel_N21: 'gear_wheel_N21_v01'
 };
 
 function inferDesignName(instanceName) {
@@ -34,10 +36,10 @@ function getCmd(dName, fName) {
 	rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}.scad write scad_3d_openscad`);
 	//rCmd.push(`openscad -o refs/${dName}/${fName}_oscad.stl refs/${dName}/${fName}.scad`);
 	// JsCAD
-	//rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}.js write js_3d_openjscad`);
+	rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}.js write js_3d_openjscad`);
 	//rCmd.push(`cd refs && npx jscad ${dName}/${fName}.js -o ${dName}/${fName}_jscad.stl`);
 	// FreeCAD
-	//rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}.py write py_3d_freecad`);
+	rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}.py write py_3d_freecad`);
 	//rCmd.push(`freecad.cmd refs/${dName}/${fName}.py refs/${dName}/${fName}_fc`);
 	//rCmd.push(`npx rimraf refs/${dName}`);
 	return rCmd
