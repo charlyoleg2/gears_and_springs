@@ -22,9 +22,17 @@ function getCmd(dName, fName) {
 	//rCmd.push(`ls refs/${dName}`);
 	//rCmd.push(`npx designix-cli -d=gear/${desiName} -o=refs/${dName} --outFileName=px_${fName}.json write json_param`);
 	rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}.log.txt write compute_log`);
+	// svg
+	rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}_teethProfile.svg write svg__teethProfile`);
+	rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}_axisProfile.svg write svg__axisProfile`);
+	// dxf
+	rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}_teethProfile.dxf write dxf__teethProfile`);
+	rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}_axisProfile.dxf write dxf__axisProfile`);
+	// paxJson
+	rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}.pax.json write pax_all`);
 	// OpenSCAD
 	rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}.scad write scad_3d_openscad`);
-	rCmd.push(`openscad -o refs/${dName}/${fName}_oscad.stl refs/${dName}/${fName}.scad`);
+	//rCmd.push(`openscad -o refs/${dName}/${fName}_oscad.stl refs/${dName}/${fName}.scad`);
 	// JsCAD
 	//rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}.js write js_3d_openjscad`);
 	//rCmd.push(`cd refs && npx jscad ${dName}/${fName}.js -o ${dName}/${fName}_jscad.stl`);
