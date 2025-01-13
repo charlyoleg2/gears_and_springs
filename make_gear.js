@@ -10,6 +10,10 @@ const c_Parts = {
 	gear_wheel_N21: 'gear_wheel_N21_v01'
 };
 
+const c_svgdxf = {
+	gear_wheel: ['teethProfile', 'axisProfile']
+};
+
 function inferDesignName(instanceName) {
 	const re = /_[A-Z][0-9]*$/;
 	const rDesignName = instanceName.replace(re, '');
@@ -24,12 +28,11 @@ function getCmd(dName, fName) {
 	//rCmd.push(`ls refs/${dName}`);
 	//rCmd.push(`npx designix-cli -d=gear/${desiName} -o=refs/${dName} --outFileName=px_${fName}.json write json_param`);
 	rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}.log.txt write compute_log`);
-	// svg
-	rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}_teethProfile.svg write svg__teethProfile`);
-	rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}_axisProfile.svg write svg__axisProfile`);
-	// dxf
-	rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}_teethProfile.dxf write dxf__teethProfile`);
-	rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}_axisProfile.dxf write dxf__axisProfile`);
+	// svg, dxf
+	for (const face of c_svgdxf[desiName]) {
+		rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}_${face}.svg write svg__${face}`);
+		rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}_${face}.dxf write dxf__${face}`);
+	}
 	// paxJson
 	rCmd.push(`npx designix-cli -d=gear/${desiName} -p=refs/${dName}/px_${fName}.json -o=refs/${dName} --outFileName=${fName}.pax.json write pax_all`);
 	// OpenSCAD
