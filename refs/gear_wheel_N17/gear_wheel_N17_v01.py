@@ -672,7 +672,7 @@ def ctr_face_gear_wheel_teethProfile_Fa0_Ctr1():
 	P002 = App.Vector(9.3923, 4.2679, 0)
 	P003 = App.Vector(8.6603, 5.0000, 0)
 	S001 = Part.Arc(P001, P002, P003)
-	P004 = App.Vector(-10.0000, -0.0000, 0)
+	P004 = App.Vector(-10.0000, 0.0000, 0)
 	P005 = App.Vector(8.6603, -5.0000, 0)
 	S002 = Part.Arc(P003, P004, P005)
 	P006 = App.Vector(9.3923, -4.2679, 0)
@@ -696,7 +696,7 @@ def ctr_face_gear_wheel_teethProfile_Fa0_Ctr1():
 
 def ctr_face_gear_wheel_teethProfile_Fa0_Ctr2():
 	P000 = App.Vector(51.0028, 12.4485, 0)
-	P001 = App.Vector(-52.5000, -0.0000, 0)
+	P001 = App.Vector(-52.5000, 0.0000, 0)
 	P002 = App.Vector(51.0028, -12.4485, 0)
 	S000 = Part.Arc(P000, P001, P002)
 	P003 = App.Vector(50.2628, -9.0296, 0)
