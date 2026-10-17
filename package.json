@@ -34,8 +34,8 @@
 		"ls_refs": "ls -ltra refs"
 	},
 	"devDependencies": {
-		"designix-cli": "^1.0.22",
-		"designix-uis": "^1.0.22",
-		"rimraf": "^6.0.1"
+		"designix-cli": "^1.0.41",
+		"designix-uis": "^1.0.41",
+		"rimraf": "^6.1.3"
 	}
 }
